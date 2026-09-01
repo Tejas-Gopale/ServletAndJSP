@@ -2,29 +2,62 @@
 <web-app xmlns="https://jakarta.ee"
          xmlns:xsi="http://w3.org"
          xsi:schemaLocation="https://jakarta.ee 
-                             https://jakarta.ee/web-app_6_0.xsd"
+                             https://jakarta.ee"
          version="6.0">
          
     <display-name>Servlet_Demo_Project</display-name>
-    
+   
+   <!-- 1. AddServlet Configuration 
     <servlet>
-    	<servlet-name>add2Number</servlet-name>
-    	<servlet-class>com.tejas.AddServlet</servlet-class>
+        <servlet-name>add2Number</servlet-name>
+        <servlet-class>com.tejas.AddServlet</servlet-class>
+        <init-param>
+            <param-name>supportEmail</param-name>
+            <param-value>support@example.com</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>
-	    <servlet-name>add2Number</servlet-name>
-	    <url-pattern>/add</url-pattern>
+        <servlet-name>add2Number</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
     
+    2. Global Context Parameters (Accessible by ALL Servlets)
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>Tejas</param-value>
+    </context-param>
     
+    <context-param>
+        <param-name>phone</param-name>
+        <param-value>moto-edge 50 neo</param-value>
+    </context-param>
+    
+   3. SquareServlet Configuration
     <servlet>
-    	<servlet-name>sq</servlet-name>
-    	<servlet-class>com.tejas.SquareServlet</servlet-class>
+        <servlet-name>sq</servlet-name>
+        <servlet-class>com.tejas.SquareServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
-	    <servlet-name>sq</servlet-name>
-	    <url-pattern>/sq</url-pattern>
+        <servlet-name>sq</servlet-name>
+        <url-pattern>/sq</url-pattern>
     </servlet-mapping>
+
+     4. MyServlet Configuration (Fixes your Null problem)
+    <servlet>
+        <servlet-name>myServletConfig</servlet-name>
+        <servlet-class>com.tejas.MyServlet</servlet-class>
+        <init-param>
+            <param-name>supportEmail</param-name>
+            <param-value>support@example.com</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>myServletConfig</servlet-name>
+        <url-pattern>/MyServlet</url-pattern>
+    </servlet-mapping>
+	 -->
+	 
 </web-app>

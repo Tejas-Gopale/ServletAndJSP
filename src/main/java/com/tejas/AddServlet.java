@@ -7,12 +7,14 @@ import org.apache.catalina.connector.Response;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+@WebServlet("/add")
 public class AddServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -24,11 +26,14 @@ public class AddServlet extends HttpServlet {
 			int sum = i + j ;
 			
 		//cookie 
-			Cookie cookie = new Cookie("sum",sum + "");
-			res.addCookie(cookie);
-			res.sendRedirect("sq");
+//			Cookie cookie = new Cookie("sum",sum + "");
+//			res.addCookie(cookie);
+//			res.sendRedirect("sq");
 			
-			
+			PrintWriter out =	res.getWriter();
+			out.print("<html> <body bgcolor='green'>");
+			out.println("Result is "+sum);
+			out.print("</body></html>");	
 			//Session 	
 //			System.out.println("result of 2 sum is : " + sum);
 //		
@@ -63,7 +68,9 @@ public class AddServlet extends HttpServlet {
 			System.out.println("result of 2 sum is : " + sum);
 			
 		PrintWriter out =	res.getWriter();
+		out.print("<hml> <body bgcolor='green'>");
 		out.println("Result is "+sum);
+		out.print("</body></html>");
 	}
 
 }
